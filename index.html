@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="autor" content="Wilson Juma" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="./fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css"
+    />
+    <title>Administrador de pacientes</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand text-capitalize" href="#">Administrador</a>
+
+        <ul class="navbar-nav me-auto d-flex flex-row">
+          <li class="nav-item">
+            <a class="nav-link active text-capitalize" href="#">Citas </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-capitalize" href="#">Pacientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-capitalize" href="#">Medicos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-capitalize" href="#">Consultas</a>
+          </li>
+        </ul>
+        <button type="button" class="btn btn-info text-capitalize mx-2">
+          Acceder
+        </button>
+        <button type="button" class="btn btn-outline-info text-capitalize">
+          Registrate
+        </button>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mt-5">
+          <h1 class="text-center">Administrador de pacientes</h1>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-6">
+          <h3 class="text-capitalize">Nueva cita</h3>
+          <form id="nueva-cita-form mt-3">
+            <div class="mb-3">
+              <label for="paciente">Nombre del paciente</label>
+              <input type="text" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="edad">Edad</label>
+              <input type="date" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="seguro">Seguro médico</label>
+              <select class="form-control" name="seguro" id="seguro">
+                <option value="" disabled selected>
+                  -- Escoge un seguro --
+                </option>
+                <option value="universal">universal</option>
+                <option value="senasa">senasa</option>
+                <option value="monumental">monumental</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="direccion">Dirección</label>
+              <input type="text" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="sintomas">Sintomas</label>
+              <textarea type="text" rows="6" class="form-control"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="col-6"></div>
+      </div>
+    </div>
+  </body>
+</html>
