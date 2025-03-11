@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="autor" content="Wilson Juma" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="./fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Administrador de pacientes</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand text-capitalize" href="#">Administrador</a>
+
+        <ul class="navbar-nav me-auto d-flex flex-row">
+          <li class="nav-item">
+            <a class="nav-link text-capitalize" href="cita.html">Cita </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-capitalize" href="#">Pacientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-capitalize active" href="medico.html"
+              >Médicos</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-capitalize" href="consulta.html"
+              >Consultas</a
+            >
+          </li>
+        </ul>
+        <button type="button" class="btn btn-info text-capitalize mx-2">
+          Acceder
+        </button>
+        <button type="button" class="btn btn-outline-info text-capitalize">
+          Registrate
+        </button>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mt-5">
+          <h1 class="text-center">médicos</h1>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Estado</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Especialidad</th>
+              <th scope="col">Citas</th>
+              <th scope="col">Consultas</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-active">
+              <th scope="row" class="text-success">En servicio</th>
+              <td>Gabriel Corona</td>
+              <td>Emergenciologo</td>
+              <td><span class="badge rounded-pill bg-dark">5</span></td>
+              <td><span class="badge rounded-pill bg-dark">10</span></td>
+              <td>
+                <a class="pointer text-danger"
+                  ><i class="bi bi-trash fs-4"></i
+                ></a>
+                <a class="mx-2 pointer text-secondary">
+                  <i class="bi bi-pencil-square fs-4"></i>
+                </a>
+                <a class="pointer text-secondary">
+                  <i class="bi bi-binoculars-fill fs-4"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Quieres agregar un médico?</th>
+              <td>
+                <div
+                  class="btn-group"
+                  role="group"
+                  aria-label="Button group with nested"
+                >
+                  <button
+                    id="nuevo-medico-btn"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Nuevo médico
+                  </button>
+                  <div class="btn-group" role="group">
+                    <button
+                      id="btnGroupDrop1"
+                      type="button"
+                      class="btn btn-primary"
+                      disabled
+                    >
+                      <i class="bi bi-person-fill-add fs-3"></i>
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- Modal crear un nuevo médico -->
+    <div class="modal" id="nuevo-medico-modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Datos del médico</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="card border-light">
+              <div class="card-body">
+                <div class="mb-3">
+                  <label for="nombre">Nombre</label>
+                  <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    class="form-control"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="nombre">Especialidad</label>
+                  <input
+                    type="text"
+                    id="especialidad"
+                    name="especialidad"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Guardar</button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/bootstrap.js"></script>
+    <script type="module" src="./js/medico.js"></script>
+  </body>
+</html>

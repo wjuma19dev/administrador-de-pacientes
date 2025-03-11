@@ -1,3 +1,7 @@
 :root {
   --negro: #212529;
 }
+
+.pointer {
+  cursor: pointer;
+}
