@@ -1,4 +1,7 @@
+import { addPaciente } from "./actions/index.js";
+import { dispatch, useSelector } from "./dispatch.js";
 import Cita from "./models/cita.js";
+import Ui from "./models/ui.js";
 
 const CITAS_FORM = document.querySelector("#nueva-cita-form");
 const inputs = document.querySelectorAll("input");
@@ -12,6 +15,8 @@ const nuevaCita = {
   dir: "",
   cuadro: "",
 };
+
+const pacientes = useSelector((state) => state.pacientes);
 
 document.addEventListener("DOMContentLoaded", () => {
   inputs.forEach((input) => {
@@ -31,9 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
   CITAS_FORM.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    // Validacion de campos vacios
     const isValid = Object.values(nuevaCita).some(
       (campo) => campo.trim().length === 0
     );
+
     if (!!isValid) {
       // TODO: Mostrar alerta de error en pantalla
       console.log("Todos los campos son obligatorios");
@@ -46,7 +53,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const cita = new Cita(nuevaCita);
-    cita.create().then((citaCreada) => console.log(citaCreada));
+    cita.create().then((citaCreada) => {
+      // TODO: Mostrar alerta de exito en pantalla
+
+      // TODO: Limpiar formulario y objeto nuevaCita
+      e.target.reset();
+
+      // TODO: Mostrar citas en pantalla
+      Ui.displayCitas();
+
+      // TODO: Crear paciente si no existe
+      // Crear paciente
+      const existePaciente = pacientes.find(
+        (p) => p.nombre === citaCreada.paciente
+      );
+      if (existePaciente) {
+        console.log("Ya existe un paciente con este nombre.");
+        return;
+      }
+      dispatch(
+        addPaciente({
+          id:
+            pacientes.length === 0 ? 1 : pacientes[pacientes.length - 1].id + 1,
+          nombre: nuevaCita.paciente,
+          edad: nuevaCita.edad,
+        })
+      );
+    });
   });
 });
 
@@ -65,7 +98,7 @@ function mostrarAlerta(el, message, tipo, error) {
   }, 3000);
 }
 
-function removerElementosDePantalla(el) {
+export function removerElementosDePantalla(el) {
   while (el.firstChild) {
     el.removeChild(el.firstChild);
   }

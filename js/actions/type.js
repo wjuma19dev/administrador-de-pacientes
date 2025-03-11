@@ -1,0 +1,2 @@
+export const FETCH_PACIENTE = "FETCH_PACIENTE";
+export const ADD_PACIENTE = "ADD_PACIENTE";
