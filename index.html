@@ -46,39 +46,77 @@
       </div>
       <div class="row mt-5">
         <div class="col-6">
-          <h3 class="text-capitalize">Nueva cita</h3>
-          <form id="nueva-cita-form mt-3">
-            <div class="mb-3">
-              <label for="paciente">Nombre del paciente</label>
-              <input type="text" class="form-control" />
+          <div class="card border-light">
+            <div class="card-header">
+              <h3 class="text-capitalize card-title">Nueva cita</h3>
             </div>
-            <div class="mb-3">
-              <label for="edad">Edad</label>
-              <input type="date" class="form-control" />
+            <div class="card-body">
+              <form id="nueva-cita-form" class="mt-3">
+                <div class="mb-3">
+                  <label for="paciente">Nombre del paciente</label>
+                  <input type="text" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="edad">Edad</label>
+                  <input type="date" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="seguro">Seguro médico</label>
+                  <select class="form-control" name="seguro" id="seguro">
+                    <option value="" disabled selected>
+                      -- Escoge un seguro --
+                    </option>
+                    <option class="text-capitalize" value="universal">
+                      universal
+                    </option>
+                    <option class="text-capitalize" value="senasa">
+                      senasa
+                    </option>
+                    <option class="text-capitalize" value="monumental">
+                      monumental
+                    </option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="direccion">Dirección</label>
+                  <input type="text" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="sintomas">Síntomas</label>
+                  <textarea
+                    type="text"
+                    rows="6"
+                    class="form-control"
+                  ></textarea>
+                </div>
+                <div class="mb-3">
+                  <button type="submit" class="btn btn-primary">Agregar</button>
+                  <button type="reset" class="btn btn-danger">
+                    Limpiar
+                    <i class="bi bi-"></i>
+                  </button>
+                </div>
+              </form>
             </div>
-            <div class="mb-3">
-              <label for="seguro">Seguro médico</label>
-              <select class="form-control" name="seguro" id="seguro">
-                <option value="" disabled selected>
-                  -- Escoge un seguro --
-                </option>
-                <option value="universal">universal</option>
-                <option value="senasa">senasa</option>
-                <option value="monumental">monumental</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="direccion">Dirección</label>
-              <input type="text" class="form-control" />
-            </div>
-            <div class="mb-3">
-              <label for="sintomas">Sintomas</label>
-              <textarea type="text" rows="6" class="form-control"></textarea>
-            </div>
-          </form>
+          </div>
         </div>
-        <div class="col-6"></div>
+        <div class="col-6">
+          <div class="card border-danger">
+            <div class="card-body">
+              <h3 class="card-title">Carlos Olivares Suero</h3>
+              <p class="card-text">
+                Dolor muy fuerte en el pecho desde esta mañana, presion aguda.
+              </p>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <span class="fw-bold">Dr. Juan Contreras</span>
+              <span>2 day ago</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <script type="module" src="./js/app.js"></script>
   </body>
 </html>
