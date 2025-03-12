@@ -1,4 +1,9 @@
+import Cita from "./models/cita.js";
+
 const CITAS_FORM = document.querySelector("#nueva-cita-form");
+const inputs = document.querySelectorAll("input");
+const seguroCampo = document.querySelector("#seguro");
+const cuadroCampo = document.querySelector("#cuadro");
 
 const nuevaCita = {
   paciente: "",
@@ -9,5 +14,27 @@ const nuevaCita = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log(CITAS_FORM);
+  inputs.forEach((input) => {
+    switch (input.name) {
+      case "edad":
+        input.addEventListener("change", inputHandleChange);
+        break;
+      default:
+        input.addEventListener("input", inputHandleChange);
+    }
+  });
+
+  seguroCampo.addEventListener("change", inputHandleChange);
+  cuadroCampo.addEventListener("input", inputHandleChange);
+
+  // TODO: Enviar Formulario aqui
+  CITAS_FORM.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const cita = new Cita(nuevaCita);
+    cita.create().then((citaCreada) => console.log(citaCreada));
+  });
 });
+
+function inputHandleChange(e) {
+  nuevaCita[e.target.name] = e.target.value;
+}

@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="autor" content="Wilson Juma" />
     <link rel="stylesheet" href="./css/bootstrap.css" />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="./fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.css"
-    />
+    /> -->
     <title>Administrador de pacientes</title>
   </head>
   <body>
@@ -54,15 +54,30 @@
               <form id="nueva-cita-form" class="mt-3">
                 <div class="mb-3">
                   <label for="paciente">Nombre del paciente</label>
-                  <input type="text" class="form-control" />
+                  <input
+                    id="paciente"
+                    name="paciente"
+                    type="text"
+                    class="form-control"
+                  />
                 </div>
                 <div class="mb-3">
                   <label for="edad">Edad</label>
-                  <input type="date" class="form-control" />
+                  <input
+                    id="edad"
+                    name="edad"
+                    type="date"
+                    class="form-control"
+                  />
                 </div>
                 <div class="mb-3">
                   <label for="seguro">Seguro médico</label>
-                  <select class="form-control" name="seguro" id="seguro">
+                  <select
+                    class="form-control"
+                    id="seguro"
+                    name="seguro"
+                    id="seguro"
+                  >
                     <option value="" disabled selected>
                       -- Escoge un seguro --
                     </option>
@@ -79,11 +94,13 @@
                 </div>
                 <div class="mb-3">
                   <label for="direccion">Dirección</label>
-                  <input type="text" class="form-control" />
+                  <input id="dir" name="dir" type="text" class="form-control" />
                 </div>
                 <div class="mb-3">
                   <label for="sintomas">Síntomas</label>
                   <textarea
+                    name="cuadro"
+                    id="cuadro"
                     type="text"
                     rows="6"
                     class="form-control"
@@ -101,6 +118,9 @@
           </div>
         </div>
         <div class="col-6">
+          <button id="fetch-citas-btn" class="btn btn-info mb-3">
+            Refrescar
+          </button>
           <div class="card border-danger">
             <div class="card-body">
               <h3 class="card-title">Carlos Olivares Suero</h3>
