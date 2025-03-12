@@ -35,7 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
       (campo) => campo.trim().length === 0
     );
     if (!!isValid) {
+      // TODO: Mostrar alerta de error en pantalla
       console.log("Todos los campos son obligatorios");
+      mostrarAlerta(
+        document.querySelector("#caja-de-alertas"),
+        "Todos los campos son obligatorios.",
+        "danger"
+      );
       return;
     }
 
@@ -46,4 +52,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function inputHandleChange(e) {
   nuevaCita[e.target.name] = e.target.value;
+}
+
+function mostrarAlerta(el, message, tipo, error) {
+  removerElementosDePantalla(el);
+  const alerta = document.createElement("DIV");
+  alerta.classList.add("alert", "alert-" + tipo);
+  alerta.textContent = message;
+  el.appendChild(alerta);
+  setTimeout(() => {
+    alerta.remove();
+  }, 3000);
+}
+
+function removerElementosDePantalla(el) {
+  while (el.firstChild) {
+    el.removeChild(el.firstChild);
+  }
 }
