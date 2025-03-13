@@ -1,7 +1,6 @@
-import { fetchPacientes } from "./actions/index.js";
+import { fetchPacientes } from "./actions";
 import { dispatch, useSelector } from "./dispatch.js";
 import "./formulario.js";
-import { citas } from "./models/cita.js";
 import Ui from "./models/ui.js";
 
 const fetchCitasBtn = document.getElementById("fetch-citas-btn");

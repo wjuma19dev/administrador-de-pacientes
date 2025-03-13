@@ -1,6 +1,6 @@
 import * as type from "../actions/type.js";
 
-export const pacienteReducer = (state, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case type.FETCH_PACIENTE:
       return { ...state, pacientes: [...state.pacientes, action.payload] };
@@ -12,7 +12,14 @@ export const pacienteReducer = (state, action) => {
         state.pacientes.push(action.payload);
       }
       return { ...state, pacientes: [...state.pacientes, action.payload] };
+    case type.FETCH_DATA:
+      return state;
+    case type.AGREGAR_MEDICO:
+      state.medicos.push(action.medico);
+      return { ...state, medicos: [...state.medicos, action.medico] };
     default:
       return state;
   }
 };
+
+export default reducer;
